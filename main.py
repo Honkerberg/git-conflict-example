@@ -1,11 +1,23 @@
 from fastapi import FastAPI
 from fastapi.responses import JSONResponse
+import logging
+
+logger = logging.getLogger("my_logger")
+logger.setLevel(logging.INFO)
+
+handler = logging.StreamHandler()
+formatter = logging.Formatter("%(asctime)s - %(levelname)s - %(message)s")
+handler.setFormatter(formatter)
+
+logger.addHandler(handler)
+
 
 app = FastAPI()
 
 
 @app.get("/")
 async def root():
+    logger.info("Root call")
     return JSONResponse(content={"message": "Welcome to FastAPI!"})
 
 
