@@ -28,11 +28,10 @@ async def get_user(user_id: int):
 
 @app.post("/items/")
 async def create_item(item: dict):
-    logger.info(f'{item} created')
     return JSONResponse(content={"item": item, "status": "created"})
 
 
 @app.get("/status")
 async def status():
-    logger.info("Status call")
+    logger.info(f"Get status")
     return JSONResponse(content={"status": "OK"})
