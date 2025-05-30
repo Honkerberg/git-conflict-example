@@ -17,7 +17,7 @@ app = FastAPI()
 
 @app.get("/")
 async def root():
-    logger.info("Root call")
+    logger.info("Root call testing")
     return JSONResponse(content={"message": "Welcome to FastAPI!"})
 
 
